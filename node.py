@@ -4,7 +4,10 @@ from p2pnetwork.nodeconnection import NodeConnection
 class server (Node):
     node_list = [ ]
     new_list = [ ]
+    messages = [ ]
 
+        
+    
 
     # Python class constructor
     def __init__(self, host, port, id=None, callback=None, max_connections=0):
@@ -42,7 +45,12 @@ class server (Node):
             print("New node_list: " + str(self.node_list))
             #print(str(self.node_list))
         if "msg" in data:
-            print("Node" + connected_node.id + "Said : " + str(data['msg']))
+            print("Node: " + connected_node.id[:8] + " Said : " + str(data['msg']))
+            message = {
+                "who": connected_node.id[:8],
+                "msg": data['msg']
+            }
+            self.messages.append(message)
 
 
 
