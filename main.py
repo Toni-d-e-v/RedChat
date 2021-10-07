@@ -44,8 +44,8 @@ def start_node(port):
     # Example of sending a message to the nodes (dict).
     # awaited while loop
     if seed_arg != "True":
-        node.connect_with_node("127.0.0.1", 12345) # connect to seed node
-        node.send_to_nodes({"message": "init1","register": "True", "port": port, "host": "127.0.0.1"})
+        node.connect_with_node("redstone.crypto.ba", 12345) # connect to seed node
+        node.send_to_nodes({"message": "init1","register": "True", "port": 12345, "host": "redstone.crypto.ba"})
         node.send_to_nodes({"message": "init"})
         time.sleep(1)
         for i in range(len(server.node_list)):
